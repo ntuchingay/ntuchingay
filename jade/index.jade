@@ -1,0 +1,40 @@
+doctype html
+
+extends ./layout.jade
+
+block title
+  title NTU Chingay Official Page
+
+block content
+  .container-fluid.pulldown
+    center
+      h3 What is Chingay?
+      .container
+        a(href="https://www.facebook.com/ntuchingaycommunity?fref=ts").btn.btn-info.btn-lg
+          | Follow us in FB!
+        a(href="joinus.html").btn.btn-success.btn-lg
+          | Sign Up Now!
+        a(href="ntucommittee.html").btn.btn-warning.btn-lg
+          | About NTU Chingay Committee
+
+  hr
+
+  .container-fluid
+    center
+      h2 Announcements
+      h4 We will update soon!!
+      .col-md-3
+      .progress.col-md-6.zero-margin.zero-padding
+        .progress-bar.progress-bar-striped.progress-bar-success.active(role="progressbar", style="width: 100%")
+      .col-md-3
+
+  hr
+
+  .container-fluid
+    center
+      h2 Upcoming events
+      h4 We will update soon!!
+      .col-md-3
+      .progress.col-md-6.zero-margin.zero-padding
+        .progress-bar.progress-bar-striped.progress-bar-success.active(role="progressbar", style="width: 100%")
+      .col-md-3
