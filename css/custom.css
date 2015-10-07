@@ -27,3 +27,8 @@
 .zero-padding {
   padding: 0px;
 }
+
+#backdrop {
+  background: url(../img/backdrop.jpg) no-repeat center center;
+  background-size: 120%;
+}

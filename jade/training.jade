@@ -1,5 +1,12 @@
 extends ./layout.jade
 
+block loadScript
+  link(href="css/calender-css.css", rel="stylesheet")
+  script(src="js/jquery-1.11.0.js")
+  script(src="js/underscore-min.js")
+  script(src="js/moment.js")
+  script(src="js/calender.js")
+
 block title
   title Traning Schedule
 
@@ -11,3 +18,27 @@ block content
       .progress.col-md-6.zero-margin.zero-padding
         .progress-bar.progress-bar-striped.progress-bar-success.active(role="progressbar", style="width: 100%")
       .col-md-3
+
+  .container-fluid#calender
+    include calender.txt
+
+  script.
+    var currentMonth = moment().format('YYYY-MM');
+    var nextMonth    = moment().add('month', 1).format('YYYY-MM');
+
+    var events = [
+      { date: currentMonth + '-' + '10', title: 'Persian Kitten Auction', location: 'Center for Beautiful Cats' },
+      { date: currentMonth + '-' + '19', title: 'Cat Frisbee', location: 'Jefferson Park' },
+      { date: currentMonth + '-' + '23', title: 'Kitten Demonstration', location: 'Center for Beautiful Cats' },
+      { date: nextMonth + '-' + '07',    title: 'Small Cat Photo Session', location: 'Center for Cat Photography' }
+    ];
+
+
+    $("#calender").clndr({
+      daysOfTheWeek: ['Sun', 'Mon', 'Tue', 'Wed', 'Thurs', 'Fri', 'Sat'],
+      events: events,
+      forceSixRows: true
+    });
+
+
+block script

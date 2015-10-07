@@ -11,31 +11,33 @@ html
         meta(name="viewport",content="width=device-width,initial-scale=1")
         link(href="css/superhero_bootstrap.css", rel="stylesheet")
         link(href="css/custom.css", rel="stylesheet")
+        block loadScript
 
     block title
 
     body
-        .navbar-default.navbar-fixed-top
-          .navbar-header
-            button(type="button",class="navbar-toggle",data-toggle="collapse",data-target=".navbar-responsive-collapse")
-              span.icon-bar
-              span.icon-bar
-              span.icon-bar
-            a(href="index.html").navbar-brand.mobile-only
-                h3.zero-margin Home
+      .navbar-default.navbar-fixed-top
+        .navbar-header
+          button(type="button",class="navbar-toggle",data-toggle="collapse",data-target=".navbar-responsive-collapse")
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a(href="index.html").navbar-brand.mobile-only
+              h3.zero-margin Home
 
-          .navbar-collapse.collapse.navbar-responsive-collapse
-            .nav.navbar-nav.navbar-left(style="padding-left:10px")
-              a(href="index.html")
-                img(src="img/logo.png", style="width:35%; border-radius:10px")
-            ul.nav.navbar-nav.navbar-right
-              +navlink("Home","index.html")
-              +navlink("Sign Up","joinus.html")
-              +navlink("Training Schedule","training.html")
-              +navlink("Gallery","gallery.html")
-              +navlink("FAQ & Contact Us","contactus.html")
+        .navbar-collapse.collapse.navbar-responsive-collapse
+          .nav.navbar-nav.navbar-left(style="padding-left:10px")
+            a(href="index.html")
+              img(src="img/logo.png", style="width:35%; border-radius:10px")
+          ul.nav.navbar-nav.navbar-right
+            +navlink("Home","index.html")
+            +navlink("Sign Up","joinus.html")
+            +navlink("Training Schedule","training.html")
+            +navlink("Gallery","gallery.html")
+            +navlink("FAQ & Contact Us","contactus.html")
 
-        block content
+      block content
 
-        script(src="js/jquery-1.11.0.js")
-        script(src="js/bootstrap.min.js")
+      block script
+      script(src="js/jquery-1.11.0.js")
+      script(src="js/bootstrap.min.js")

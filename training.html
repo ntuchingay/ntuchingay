@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link href="css/superhero_bootstrap.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
+    <link href="css/calender-css.css" rel="stylesheet">
+    <script src="js/jquery-1.11.0.js"></script>
+    <script src="js/underscore-min.js"></script>
+    <script src="js/moment.js"></script>
+    <script src="js/calender.js"></script>
   </head>
   <title>Traning Schedule</title>
   <body>
@@ -35,6 +40,47 @@
         <div class="col-md-3"></div>
       </center>
     </div>
+    <div id="calender" class="container-fluid"><script type="text/template" id="anything">
+  <div class="clndr-controls">
+    <div class="clndr-previous-button">&lsaquo;</div>
+    <div class="month"><%= intervalStart.format('M/DD') + ' &mdash; ' + intervalEnd.format('M/DD') %></div>
+    <div class="clndr-next-button">&rsaquo;</div>
+  </div>
+  <div class="clndr-grid">
+    <div class="days-of-the-week">
+      <% _.each(daysOfTheWeek, function(day) { %>
+        <div class="header-day"><%= day %></div>
+      <% }); %>
+      <div class="days">
+        <% _.each(days, function(day) { %>
+          <div class="<%= day.classes %>"><%= day.day %></div>
+        <% }); %>
+      </div>
+    </div>
+  </div>
+  <div class="clndr-today-button">Today</div>
+</script>
+    </div>
+    <script>
+      var currentMonth = moment().format('YYYY-MM');
+      var nextMonth    = moment().add('month', 1).format('YYYY-MM');
+      
+      var events = [
+        { date: currentMonth + '-' + '10', title: 'Persian Kitten Auction', location: 'Center for Beautiful Cats' },
+        { date: currentMonth + '-' + '19', title: 'Cat Frisbee', location: 'Jefferson Park' },
+        { date: currentMonth + '-' + '23', title: 'Kitten Demonstration', location: 'Center for Beautiful Cats' },
+        { date: nextMonth + '-' + '07',    title: 'Small Cat Photo Session', location: 'Center for Cat Photography' }
+      ];
+      
+      
+      $("#calender").clndr({
+        daysOfTheWeek: ['Sun', 'Mon', 'Tue', 'Wed', 'Thurs', 'Fri', 'Sat'],
+        events: events,
+        forceSixRows: true
+      });
+      
+      
+    </script>
     <script src="js/jquery-1.11.0.js"></script>
     <script src="js/bootstrap.min.js"></script>
   </body>

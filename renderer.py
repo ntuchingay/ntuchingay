@@ -13,7 +13,7 @@ class JadeHandler(FileSystemEventHandler):
       print("Refreshing all current versions")
       #All templates should be completely rendered before the program
       #can check for individual changes
-      p=Popen(["jade","-P","-w","./jade","--out","./"],cwd="./",shell=True)
+      p=Popen(["jade","-P","./jade","--out","./"],cwd="./",shell=True)
       p.wait(360)
       print("Refreshing complete")
 
@@ -38,7 +38,7 @@ class JadeHandler(FileSystemEventHandler):
          print("Old version found and removed: ", tempname)
       else:
          print("Old version not found.")
-"""
+   
    def create_new_version(self,dirname,filename):
       print("Creating new file from : \"{0}\" in : \"{1}\"".format(filename, dirname))
       #Non blocking for parallel rendering
@@ -57,7 +57,7 @@ class JadeHandler(FileSystemEventHandler):
       self.generator(event)
    def on_modified(self,event):
       self.generator(event)
-"""
+
 def startRender():
    jade_handler  = JadeHandler()   
    renderer = Observer()
@@ -66,5 +66,6 @@ def startRender():
 
 if __name__ == "__main__":
    print("Started Sentinel")
-   server.serve(8000)
    startRender()
+   print("Launching page")
+   server.serve(8000)
