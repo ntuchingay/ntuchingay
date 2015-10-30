@@ -1,44 +1,261 @@
 extends ./layout.jade
 
-block loadScript
-  link(href="css/calender-css.css", rel="stylesheet")
-  script(src="js/jquery-1.11.0.js")
-  script(src="js/underscore-min.js")
-  script(src="js/moment.js")
-  script(src="js/calender.js")
-
 block title
   title Traning Schedule
 
 block content
-  .container-fluid.pulldown
-    center
-      h3 We will announce soon once we have confirmed. Thank you!
-      .col-md-3
-      .progress.col-md-6.zero-margin.zero-padding
-        .progress-bar.progress-bar-striped.progress-bar-success.active(role="progressbar", style="width: 100%")
-      .col-md-3
+  .container-fluid.zero-margin.zero-padding.pulldown
+    hr
+    .col-md-2
+    .col-md-5.slideshow
+      .col-xs-12.col-md-4.zero-margin.zero-padding
+        .dateBtn.show
+          .row.zero-margin.dateHeader
+            .span.left.hook
+            .span.right.hook
+            .span.middle.hook
+            .year#year1 January 2016
+          .row.zero-margin.date#date1 1
+          .row.zero-margin.dateFooter
+            p#foot1 Today
+      .col-xs-12.col-md-4.zero-margin.zero-padding
+        .dateBtn#dBtn2
+          .row.zero-margin.dateHeader
+            .span.left.hook
+            .span.right.hook
+            .span.middle.hook
+            .year#year2 January 2016
+          .row.zero-margin.date#date2 2
+          .row.zero-margin.dateFooter
+            p#foot2 Today
+      .col-xs-12.col-md-4.zero-margin.zero-padding
+        .dateBtn#dBtn3
+          .row.zero-margin.dateHeader
+            .span.left.hook
+            .span.right.hook
+            .span.middle.hook
+            .year#year3 January 2016
+          .row.zero-margin.date#date3 3
+          .row.zero-margin.dateFooter
+            p#foot3 Today
+      span.prev &laquo;
+      span.next &raquo;
+    .col-md-3
+      h2 Upcoming Trainings
+      h6 Note that next 3 training dates are shown.
+      h6 Check all training dates in the table below.
+    .col-md-2
+  hr
 
-  .container-fluid#calender
-    include calender.txt
-
-  script.
-    var currentMonth = moment().format('YYYY-MM');
-    var nextMonth    = moment().add('month', 1).format('YYYY-MM');
-
-    var events = [
-      { date: currentMonth + '-' + '10', title: 'Persian Kitten Auction', location: 'Center for Beautiful Cats' },
-      { date: currentMonth + '-' + '19', title: 'Cat Frisbee', location: 'Jefferson Park' },
-      { date: currentMonth + '-' + '23', title: 'Kitten Demonstration', location: 'Center for Beautiful Cats' },
-      { date: nextMonth + '-' + '07',    title: 'Small Cat Photo Session', location: 'Center for Cat Photography' }
-    ];
-
-
-    $("#calender").clndr({
-      daysOfTheWeek: ['Sun', 'Mon', 'Tue', 'Wed', 'Thurs', 'Fri', 'Sat'],
-      events: events,
-      forceSixRows: true
-    });
-
+  .container-fluid.table-responsive
+    .text-center 
+      h2 Training Schedule
+    table.table.table-striped#trainingTable
+      tr
+        th.col1 Training
+        th.col2 Day
+        th.col3 Date
+        th.col4 Type
+        th.col5 Venue
+        th.col6 Time
+        th.col7 Remarks
+      tr
+        td.col1 1
+        td.col2 Saturday
+        td.col3 02 Jan
+        td.col4 NTU + PAYM Combined<br>NTU
+        td.col5 F1 Pit
+        td.col6 9.00am - 12.30pm<br>2.00pm - 5.00pm
+        td.col7 
+      tr
+        td.col1 2
+        td.col2 Monday
+        td.col3 04 Jan
+        td.col4 NTU + PAYM Combined
+        td.col5 F1 Pit
+        td.col6 6.30pm - 10.00pm
+        td.col7 
+      tr
+        td.col1 3
+        td.col2 Wednesday
+        td.col3 06 Jan
+        td.col4 NTU + PAYM Combined
+        td.col5 F1 Pit
+        td.col6 6.30pm - 10.00pm
+        td.col7 
+      tr
+        td.col1 4
+        td.col2 Friday
+        td.col3 08 Jan
+        td.col4 NTU
+        td.col5 F1 Pit
+        td.col6 6.30pm - 10.00pm
+        td.col7 
+      tr
+        td.col1 5
+        td.col2 Saturday
+        td.col3 09 Jan
+        td.col4 NTU + PAYM Combined<br>NTU
+        td.col5 F1 Pit
+        td.col6 9.00am - 12.30pm<br>2.00pm - 5.00pm
+        td.col7 
+      tr
+        td.col1 6
+        td.col2 Monday
+        td.col3 11 Jan
+        td.col4 Decentralised + PAYM Combined
+        td.col5 F1 Pit
+        td.col6 6.30pm - 10.00pm
+        td.col7 
+      tr
+        td.col1 7
+        td.col2 Wednesday
+        td.col3 13 Jan
+        td.col4 Decentralised + PAYM Combined
+        td.col5 F1 Pit
+        td.col6 6.30pm - 10.00pm
+        td.col7 
+      tr
+        td.col1 8
+        td.col2 Friday
+        td.col3 15 Jan
+        td.col4 NTU
+        td.col5 NTU
+        td.col6 6.30pm - 10.00pm
+        td.col7
+      tr
+        td.col1 9
+        td.col2 Saturday
+        td.col3 16 Jan
+        td.col4 SCENE Rehearsal
+        td.col5 F1 Pit
+        td.col6 6.30pm - 10.00pm<br>Timing by SCENE: 5.00pm - 7.00pm<br>Timing by SCENE: 7.00pm - 9.00pm
+        td.col7 1st Combined Rehearsal for Finale<br>1st Combined Rehearsal for Opening<br><strong>No make up</strong>
+      tr
+        td.col1 10
+        td.col2 Monday
+        td.col3 18 Jan
+        td.col4 Decentralised + PAYM Combined
+        td.col5 F1 Pit
+        td.col6 6.30pm - 10.00pm
+        td.col7 
+      tr
+        td.col1 11
+        td.col2 Wednesday
+        td.col3 20 Jan
+        td.col4 SCENE Rehearsal
+        td.col5 F1 Pit
+        td.col6 3.00pm - 11.00pm<br>Timing by SCENE: 6.30pm - 11.00pm
+        td.col7 2nd Combined Rehearsal for Opening<br><strong>No make up</strong>
+      tr
+        td.col1 12
+        td.col2 Saturday
+        td.col3 23 Jan
+        td.col4 SCENE Rehearsal
+        td.col5 F1 Pit
+        td.col6 3.00pm - 11.00pm
+        td.col7 Full dress rehearsal
+      tr
+        td.col1 13
+        td.col2 Monday
+        td.col3 25 Jan
+        td.col4 Decentralised + PAYM Combined
+        td.col5 F1 Pit
+        td.col6 6.30pm - 10.00pm
+        td.col7 
+      tr
+        td.col1 14
+        td.col2 Wednesday
+        td.col3 27 Jan
+        td.col4 SCENE Rehearsal
+        td.col5 F1 Pit
+        td.col6 3.00pm - 11.00pm<br>Timing by SCENE: 7.30pm - 9.30pm
+        td.col7 2nd Combined Rehearsal for Finale<br><strong>No make up</strong>
+      tr
+        td.col1 15
+        td.col2 Saturday
+        td.col3 30 Jan
+        td.col4 SCENE Rehearsal and NE Show
+        td.col5 F1 Pit
+        td.col6 12.00pm - 11.00pm
+        td.col7 NE Show<br><strong>Make up</strong>
+      tr
+        td.col1 16
+        td.col2 Monday
+        td.col3 01 Feb
+        td.col4 Decentralised + PAYM Combined
+        td.col5 F1 Pit
+        td.col6 6.30pm - 10.00pm
+        td.col7
+      tr
+        td.col1 17
+        td.col2 Wednesday
+        td.col3 03 Feb
+        td.col4 Decentralised + PAYM Combined
+        td.col5 F1 Pit
+        td.col6 6.30pm - 10.00pm
+        td.col7
+      tr
+        td.col1 18
+        td.col2 Saturday
+        td.col3 06 Feb
+        td.col4 Decentralised + PAYM Combined
+        td.col5 F1 Pit
+        td.col6 9.00am - 12.30pm
+        td.col7
+      tr
+        td.col1 19
+        td.col2 Saturday
+        td.col3 13 Feb
+        td.col4 Decentralised + PAYM Combined
+        td.col5 F1 Pit
+        td.col6 9.00am - 12.30pm
+        td.col7 
+      tr
+        td.col1 20
+        td.col2 Monday
+        td.col3 15 Feb
+        td.col4 Decentralised + PAYM Combined
+        td.col5 F1 Pit
+        td.col6 6.30pm - 10.00pm
+        td.col7
+      tr
+        td.col1 21
+        td.col2 Thursday
+        td.col3 18 Feb
+        td.col4 SCENE Rehearsal
+        td.col5 F1 Pit
+        td.col6 12.00pm - 11.00pm
+        td.col7 Combined full dress rehearsal
+      tr
+        td.col1 22
+        td.col2 Friday
+        td.col3 19 Feb
+        td.col4 Chingay Parade 1
+        td.col5 F1 Pit
+        td.col6 12.00pm - 11.00pm
+        td.col7 
+      tr
+        td.col1 23
+        td.col2 Saturday
+        td.col3 20 Feb
+        td.col4 Chingay Parade 2
+        td.col5 F1 Pit
+        td.col6 12.00pm - 11.00pm
+        td.col7
+      tr
+        td.col1 24
+        td.col2 Sunday
+        td.col3 21 Feb
+        td.col4 SCENE Rehearsal
+        td.col5 Bishan/AMK Park
+        td.col6 3.30pm - 10.00pm
+        td.col7
+      tr
+        td(colspan="7") SCENE: Singapore Chingay &amp; Events Network SCENE) of the People's Association (PA). They organise and manage the Chingay Parade.<br>Subjected to prior changes.
 
 block script
+  script(src="js/jquery-1.11.0.js")
+  script(src="js/bootstrap.min.js")
+  script(src="js/moment.js")
+  script(src="js/training.js")
