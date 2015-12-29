@@ -11,7 +11,7 @@ else:
    import http.server as server
    from http.server import CGIHTTPRequestHandler
 
-def serve(port=7000,url=None):
+def serve(port=8000,url=None):
    if url==None: url="http://localhost:%s"%port
    try:
       #Check if the local server already exists.
