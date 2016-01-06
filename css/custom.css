@@ -216,3 +216,9 @@
     border-bottom-right-radius: 3px;
   }
 }
+.committee-pic-container {
+  height: 320px;
+}
+.committee-pic {
+  max-width: 400px;
+}

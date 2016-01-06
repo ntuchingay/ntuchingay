@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  // showing correct date the calender
   var training = ['20160102','20160104','20160106','20160108', 
                   '20160109','20160111','20160113','20160115', 
                   '20160116','20160118','20160120','20160123', 
@@ -8,6 +9,10 @@ $(document).ready(function(){
 
   var current = moment().format("YYYYMMDD");  //string
   var i = 0;
+  var k = 0;
+
+  var cancel = ['20160108'];
+  var cancel_html = '<span class="label label-danger">Cancelled</span>';
 
   for (i in training) {
     if (training[i] >= current) {
@@ -15,12 +20,24 @@ $(document).ready(function(){
     };
     i++;
   };
-
+  var for_table = parseInt(i);
+  for_table += 1;
   for(var j=1; j<4; i++, j++) {
     var temp = moment(training[i], "YYYYMMDD").format("YYYY-MMMM-D").split("-");
     $('#year' + String(j)).html(temp[1] + " " + temp[0]);
     $('#date' + String(j)).html(temp[2]);
     $('#foot' + String(j)).html(moment(training[i], "YYYYMMDD").format("dddd"));
+    for (k in cancel) {
+      // mark special conditions
+      if (cancel[k] == training[i]) {
+        $('#foot' + String(j)).html(moment(training[i], "YYYYMMDD").format("dddd") + ' '+ cancel_html);
+      }
+    }
+  }
+  console.log(for_table);
+  while(for_table) {
+    $('#trainingTable tr:nth-child(' + String(for_table) + ') > td').addClass("text-muted");
+    for_table--;
   }
 })
 
