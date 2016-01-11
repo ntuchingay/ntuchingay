@@ -21,7 +21,7 @@ $(document).ready(function(){
     i++;
   };
   var for_table = parseInt(i);
-  for_table += 1;
+  //for_table += 1;
   for(var j=1; j<4; i++, j++) {
     var temp = moment(training[i], "YYYYMMDD").format("YYYY-MMMM-D").split("-");
     $('#year' + String(j)).html(temp[1] + " " + temp[0]);
@@ -34,7 +34,6 @@ $(document).ready(function(){
       }
     }
   }
-  console.log(for_table);
   while(for_table) {
     $('#trainingTable tr:nth-child(' + String(for_table) + ') > td').addClass("text-muted");
     for_table--;

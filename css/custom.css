@@ -23,10 +23,6 @@
 .zero-padding {
   padding: 0px;
 }
-#background {
-  background: black;
-  opacity: 0.9;
-}
 #backdrop {
   position: absolute;
   width: 100%;
