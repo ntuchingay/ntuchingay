@@ -11,7 +11,7 @@ $(document).ready(function(){
   var i = 0;
   var k = 0;
 
-  var cancel = ['20160108'];
+  var cancel = ['20160108', '20160206'];
   var cancel_html = '<span class="label label-danger">Cancelled</span>';
 
   for (i in training) {
